@@ -4,6 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>01_CSS 개요, CSS 선택자 1</title>
+
+    <style>
+        /* style 태그: css를 작성하기 위한 태그, style 태그 내부에는 css코드만 작성가능 */
+        
+        /* 태그 선택자 */
+        
+        
+        h1{ color : red;}
+        /* 여기서 h1이 선택자임 */
+
+        strong{
+            font-size : 18px;
+            font-family : '궁서체' ; 
+            color : blueviolet/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+             /* 글자색 */
+        }
+        code{
+            background-color : lightcoral;
+            /* 배경색(형광펜) */
+            display : block;
+            font-weight : bold;
+            /* 폰트에 무게감을 추가하겠다 두껍게 */
+        }
+        /* id(#) 선택자 */
+        /* HTML 문서 내에서 id가 중복되는 경우 없어야 하므로 */
+        /* 딱 하나만 지정해서 디자인하고 싶으면 id사용 */
+        #li1{background-color : green;}
+        #li2{background-color : yellow;}
+        #li3{background-color : red;}
+
+        /* class(.) 선택자 */
+        /* ; : 명령어 하나를 끝낸다는 뜻 */
+        .test1{background-color: black;
+        color : white;}
+            .test99{background-color : pink;
+            color : orangered}
+    /* .test-1의 배경색을 orange로 하고 싶다 */
+        
+    test-1{background-color : orange;}
+        /* .test-1{ background-color : orange;} */
+        .test-2{font-size : 30px;}
+        
+        
+        /* 9번은 test-1과 aaa를 모두 가지는데 같은 속성 종류를 준다 */
+        /* 9번처럼 중복되는 경우에는, */
+        /* css는 style 부분에서 마지막 순서로 해석된(가장 밑에 있는) css코드가 적용된다  */
+        .aaa{ background-color : skyblue;}여기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        
+        /* 모든 요소 선택자(*) */
+        /* 모든 텍스트에 밑줄 표시한 것임*/
+        *{text-decoration : underline;
+            /* 모든 요소의 글꼴(폰트) 지정 == 이 페이지에서 사용할 기본 폰트 지정 */
+            font-family : '바탕체';
+        
+        }
+/* 웹 폰트 적용하기(눈누) */
+        @font-face {
+    font-family: 'SOYOMapleBoldTTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+} /* 이제 이 폰트 사용할 준비 됐어 */
+*{font-family: 'SOYOMapleBoldTTF';}
+
+/* 태그의 수보다 모든요소(*)의 적용 범위가 훨씬 많아서 */
+/* 태그가 모든요소(*)의 우선순위가 더 높음, 적용 범위가 적은 것이 더 우선순위가 높아서 */
+/* */
+/* CSS 적용 우선순위
+1. 선택자 범위가 작은 선택자가 범위가 상대적으로 큰 선택자보다 우선순위를 갖는다
+(!important > 인라인스타일 > 아이디 > 클래스 > 태그 > 모든 요소(*))
+2. 같은 부분에 같은 선택자가 중복된 경우 마지막에 작성된 CSS가 적용된다 */
+
+
+
+
+    </style>
+<!-- extention->live share : 한 문서를 여러 명이 동시에 편집 가능 -->
+
 </head>
 <body>
     <h1>CSS(Cascading Style Sheets, 종속(포함) )</h1>
@@ -16,6 +94,104 @@
         W3C=웹 표준 지정 단체
         W3C에서 CSS를 웹 표준으로 지정함
     </pre>
+
+    <hr>
+    <h1>CSS 선택자(CSS Selector)</h1>
+    <pre>
+        현재 문서 내에서 특정 요소를 선택하는 문자 또는 문자열(기호)
+        
+        <h1>:시작태그 ///  <>안에 작성하는 style 등은 속성값
+            두 태그 사이는 내용
+        </h1> : 종료태그
+        시작태그와 종료태그까지의 전체가 하나의 요소!
+
+        *요소(Element) : 시작태그 + 속성 + 내용 + 종료태그
+
+    </pre>
+    <ul>
+        ** CSS 코드를 작성하는 방법 **
+        <li>방법1 : head 태그에 style 태그를 작성한 후 내부에 css코드를 작성한다(이걸 할거임)</li>
+        <li>방법2 : 원하는 요소에 직접 style 속성을 이용해서 css코드를 작성한다</li>
+        <li>방법3 : 외부에 .css 파일을 생성하여 연결한다</li>
+    </ul>
+    <hr>
+    <h3>태그 선택자</h3>
+    <pre>
+        -현재 문서 내에 특정 태그를 모두 찾아 선택하는 선택자
+        h1 태그들을 찾아서 그 색만 빨간색으로 바꾸기
+        
+        <strong>[작성법]</strong>
+        
+        <code>태그명 {css코드;}</code> <!-- code태그 == p태그 -->
+    
+    </pre>
+    <hr>
+    <h3> id(#) 선택자</h3>
+    CSS, javascript에서 id를 #으로 나타냄
+    <pre>
+        HTML 문서 내에서 id가 일치하는 요소를 찾아내는 선택자이다
+        <strong>[작성법]</strong>
+        
+        <code>
+        #id 속성값{ CSS 코드; }
+        </code>
+
+    </pre>
+    <!-- ol>li*3#li${id 선택자 테스트 $} -->
+    <ol>
+        <li id="li1">id 선택자 테스트 1</li>
+        <li id="li2">id 선택자 테스트 2</li>
+        <li id="li3">id 선택자 테스트 3</li>
+    </ol>
+    <hr>
+    <h3>class(.) 선택자</h3>
+    <pre>
+        HTML 문서 내에서 
+        class 속성 값이 일치하는 모든 요소를 
+        선택하는 선택자
+        <!-- id는 하나만 선택하는 요소이고, class는 여러 개를 선택하는 요소 -->
+        <strong>[작성법]</strong>
+        <code><!-- . : class를 나타내는 기호 -->
+            .class속성값{ css 코드;} 
+        </code>
+        ***요소에 CSS를 적용하기 위해 선택자를 작성할 때
+        id 선택자보다 class선택자를 이용하는 것이 좋다!! *** 
+        (id는 하나밖에 못해서 범용성 떨어지고,
+        id 속성 자체가 CSS에서 보다 JS에서 많이 사용되기 때문!)
+    </pre>
+    <p class="test1"> class 선택자 테스트</p>
+    <p class="test99"> class 선택자 테스트</p>
+    <p class="test1"> class 선택자 테스트</p>
+    <p class="test99"> class 선택자 테스트</p>
+    <p class="test1"> class 선택자 테스트</p>
+
+    <ul>
+        <li class="test-1">클래스 선택자 테스트1</li>
+        <li class="test-2">클래스 선택자 테스트2</li>
+        <li class="test-1">클래스 선택자 테스트3</li>
+        <li class="test-2">클래스 선택자 테스트4</li>
+        <li class="test-1">클래스 선택자 테스트5</li>
+    
+        <li class="aaa">클래스 선택자 테스트6</li>
+        
+        <!-- 2개 이상의 클래스 적용하는 것도 가능-->
+        <!-- 해당 클래스에 해당하는 성질 다 각각 가지게 됨, 중첩해서 적용 가능-->
+        <li class="aaa test-1">클래스 선택자 테스트7</li>
+    
+        <li class="test-2 aaa">클래스 선택자 테스트8</li>
+    
+        <!-- 여러 클래스 작성 시 class 속성 값 순서는 의미 없음
+          -> style 태그 css 코드 작성 순서에 따라 다름
+        -->
+        <li class="test-1 test-2 aaa">클래스 선택자 테스트9</li>
+        <li class="test-2 test-1 aaa">클래스 선택자 테스트9</li>
+      </ul>
+<h3>모든 요소 선택자(*, asterisk)</h3>
+      <pre>
+        단독 사용 시 : 문서에 존재하는 모든 요소를 선택자로 기능
+
+        다른 선택자와 혼용 사용 시 : 선택된 요소의 모든 자식/후손/형제를 의미 
+      </pre>
 
 
 
