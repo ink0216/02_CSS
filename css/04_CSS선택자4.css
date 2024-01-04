@@ -1,0 +1,100 @@
+/* -------일반 구조 선택자-------- */
+/* A:first-child */
+/* 형제들 중 첫 번째가 A가 맞다면 선택 */
+#test1 > p:first-child{
+    background-color: red;
+    color : white;
+
+}
+
+/* A:last-child */
+/* 형제들 중 마지막이 A가 맞다면 선택 */
+#test1 > p:last-child{
+    background-color: blue;
+    color : white;
+
+} /* 마지막이 p 태그가 맞다면 구현해라 */
+
+/* A:nth-child(숫자 또는 수열) */
+/* 형제들 중 n번째가 A가 맞다면 선택 */
+#test1 > p:nth-child(3){
+    background-color: yellow;
+    /* 괄호 안에 3이 있으니 세 번째가 p태그면 노랑색 구현해라 */
+
+}
+
+/* 수열 */
+#test1 > p:nth-child(2n-1){
+/* 홀수 번째가 p태그가 맞다면 구현해라. 아닌 것은 구현하지 마라 */
+    text-decoration: line-through;
+    /* 가운데 선 긋기 */
+}
+
+#test1 > p:nth-child(2n){
+/* 짝수 번째가 p태그가 맞다면 구현해라. 아닌 것은 구현하지 마라 */
+    font-family: "궁서체";
+    font-weight: bold;
+    font-size: 30px;
+    /* 6번은 p태그가 아니어서 그거 빼고 적용됨 */
+}
+/* A:nth-last-child(숫자 또는 수열) */
+/* 형제들 중 뒤에서 부터 셌을 때 n번째가 A가 맞다면 구현해라 */
+#test1 > p:nth-last-child(4){
+    border : 5px dotted black;
+}
+/* 뒤에서부터 네번째가 p태그가 맞다면 구현해라 */
+
+/* -----------형태 구조 선택자 -----------   */
+/* A:first-of-type */
+/* 선택된 A 요소들 중 첫 번째 */
+
+#test2 > p:first-of-type{
+    background-color: tomato;
+
+}
+
+/* A:last-of-type */
+/* 선택된 A 요소들 중 마지막 */
+
+#test2 > p:last-of-type{
+    background-color: cyan;
+
+}
+/* A:nth-of-type(숫자 또는 수열) */
+/* 선택된 A 요소들 중 n번째를 선택  */
+#test2 > p:nth-of-type(2){
+    background-color: yellow;
+  }
+  /* A:nth-of-type(숫자 또는 수열) */
+/* 선택된 A 요소들 중 n번째를 선택  */
+#test2 > pre:nth-of-type(2){
+    background-color: red;
+  }
+  
+  #test2 > p:nth-of-type(2n){
+    background-color: black;
+    color: white;
+  }
+  /* A:nth-last-of-type(숫자 또는 수열) */
+/* 선택된 A 요소들 중 뒤에서 n번째를 선택  */
+#test2 > p:nth-last-of-type(2):hover{
+    color:yellow;
+}
+/* 뒤에서 두번째에 마우스 커서를 올렸을 때 글씨 색을 노랑으로! */
+#test2 > p:nth-last-of-type(2):hover +p{
+    color:yellow;
+}
+/* 뒤에서 두번째에 마우스 커서를 올렸을 때 걔 말고 그 다음 p태그의 글씨 색을 노랑으로! */
+
+/* 부정 선택자 */
+#test3 > li:nth-of-type(3n){
+    background-color: pink;
+}
+#test3 > li:not(:nth-of-type(3n)){
+    background-color: green;
+}
+/* test3의 리스트 아이템 중에서 3의 배수 빼고 적용해라 */
+
+
+
+
