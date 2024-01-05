@@ -1,0 +1,22 @@
+/* 3순위 : 아이디 선택자 */
+#test1{
+    color:white; /* 아래 내용과 겹치는 속성 아니어서 누적돼 적용 */
+    height: 100px;
+    background-color: black; /* h와 bgc가 아래 순위들 이김 */
+    }
+
+
+
+/* 4순위 : 클래스 선택자 */
+.cls1{
+    /* !important;가 1순위여서 뒤에 붙여주면 무조건 그게 반영됨 */
+    background-color: green !important;
+}
+/* 5순위 : 태그 선택자 */
+/* w200, h200, bgc=백그라운드컬러 */
+div{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+} /* div가 더 나중에 해석되어 빨강이 됐어야 하는데
+앞에 있는게 더 클래스가 높아서 빨강이 적용되지 않음 */

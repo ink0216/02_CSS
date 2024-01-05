@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_레이아웃 스타일 1</title>
+    <link rel="stylesheet" href="../css/07_레이아웃스타일1.css">
+</head>
+<body>
+<h1>레이아웃(layout)</h1>
+<pre>
+    사전적 의미 : 배치, 정리
+
+    기술적 의미 : 구성 요소를 제한된 공간에 효율적으로 배치하는 것
+
+</pre>
+<hr>
+<h1>화면 배치(표시, 형식) 지정 : display 속성</h1>
+<pre>
+    요소가 화면에 어떻게 보여질 지 형식을 지정하는 속성
+
+    - block : 화면을 수직 분할(행을 나눔, 한 블럭이 한 줄 다 차지, 아파트 층 나누기)
+        + width, height 지정 가능
+
+    - inline : 화면을 수평 분할(하나의 행의 열을 나눔 == 글자, 문자열 생각 아파트 호수 나누기)
+        + width, height 지정 불가능!
+
+    - inline-block : inline의 수평 분할 + block의 width, height 지정
+    (인라인처럼 옆으로 되는데 블럭처럼 크기조절 하고 싶을 때)
+
+    - none : 요소는 존재하나 화면에는 보이지 않게 함 (체크박스 할 때)
+
+    - flex : 요소의 정렬되는 방향, 요소간의 간격을 유연하게 처리하는 형식 (1차원)
+    (3분할 원할 때 수치 안재고 flex쓰면 알아서 삼등분 해줌)(가장 많이 사용)
+    - grid : 격자무늬 형식으로 화면을 쉽게 분할하는 형식(2차원)
+</pre>
+<hr>
+<h3>block 형식의 요소를 inline 형식으로 변경하기</h3>
+<div class="block area1 inline">1번 영역</div>
+<div class="block area2 inline">2번 영역</div>
+<div class="block area3 inline">3번 영역</div>
+<div class="block area4 inline">4번 영역</div>
+<div class="block area5 inline">5번 영역</div>
+<!-- 모든 요소는 블락인지 인라인인지가 각각 정해져있는데 다른 걸로 바꿀 수 있음 -->
+<!-- span: inline 형식의 대표적 요소 -->
+<hr>
+<h3>inline 형식의 요소를 block 형식으로 변경하기</h3>
+<!-- span: inline 형식의 대표적 요소 -->
+<!-- span.inline*5{$번 영역} -->
+  <span class="inline area1 block">1번 영역</span>
+  <span class="inline area2 block">2번 영역</span>
+  <span class="inline area3 block">3번 영역</span>
+  <span class="inline area4 block">4번 영역</span>
+  <span class="inline area5 block">5번 영역</span>
+<!-- 바로 위에 inline지우면 블락 형식으로 바뀜  -->
+<!-- span 클래스 안에 아무것도 안쓰면 기본적으로 inline형식으로(가로 나열) 됨 -->
+<!-- block 형식 : 세로 나열 -->
+    <hr>
+    <h3>inline-block, none으로도 바꿔보기</h3>
+    <!-- span*5하면 가로로 배열됨 세로로 하려면 이렇게! -->
+    <!-- 설정-emmet 검색- emmet syntax prifiles- 편집- 파일열리는데
+    -emmet.syntaxProfiels 중괄호 안에-
+"html": {"inline_break" : 1} 넣고 저장하면 됨 -->
+<!-- span.block.area${$번 영역}*5 -->
+<!-- inline, inline-block은 글자로 생각해야 편하다 -->
+<!-- HTML에서 글/요소 사이 띄어쓰기, 엔터는
+아무리 많이 해도 모두 띄어쓰기 1칸으로 인식된다 -->
+<!-- inline-block 형식의 요소가 아래 처럼 줄이 바뀐 상태로 작성되면
+요소 사이에 띄어쓰기 한 칸씩 추가된다 -->
+
+<span class="block area1 inline-block hidden">1번 영역</span>
+
+
+<span class="block area2 inline-block">2번 영역</span>
+<span class="block area3 inline-block none">3번 영역</span>
+<!-- 3번은 안보이게 하고 싶으면 
+    class가 none인 것은 display를 none으로 하라고 CSS했으니까
+    뒤에 none 추가해주면 됨 -->
+<span class="block area4 inline-block">4번 영역</span>
+<span class="block area5 inline-block">5번 영역</span>
+
+<!--안보이는데 자리는 차지하게 만들고 싶으면 hidden을 써주면 됨(1)  -->
+
+<hr>
+<h1>화면 분할(영역 분할)</h1>
+<h3>상하 2분할</h3>
+<!-- 칼질 하면 안되고 위아래 서랍 하나씩 넣어서 만들어야함 -->
+<!-- 블럭 쓰면 됨(한 줄을 다 차지하므로) -->
+<!-- 정확히 2등분하고 싶으면 height를 50%로 하면 됨 -->
+<pre>
+    [준비물(사전지식)]
+    -부모, 자식 요소 서랍장:상위, 서랍:하위
+    -display : block의 특징(세로 나열, 한 행을 차지하고, 크기조절이 가능)
+    -크기 단위(px, %) 사용법
+</pre>
+<!-- div.container>div*2 -->
+<!-- container : 감싸는 것 -->
+<div class="container" id="test1">
+    <div></div>
+    <div></div>
+</div>
+
+<hr>
+<h3>상하 3분할</h3>
+<pre>
+    [조건]
+    -20:30:50 높이 비율
+    -배경색 : red, yellow, green
+    -필요한 속성 자유롭게 추가 
+
+</pre>
+<div class="container" id="test2">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+<hr>
+<h3>상하 3분할-방법2</h3>
+<div class="container" id="test3">
+    <div class="bg-red h-20"></div>
+    <div class="bg-yellow h-30"></div>
+    <div class="bg-green h-50"></div>
+</div>
+<hr>
+
+<h3>좌우 2분할</h3>
+<!-- div.container#test4 -->
+<div class="container" id="test4">
+    <div></div><div></div>
+</div>
+<hr>
+
+
+
+
+<h3>田 만들기(상하, 좌우 모두 2분할)</h3>
+<!-- <div class="container"></div> : 큰 서랍 만들기 -->
+
+<!-- 우선 상하를 먼저 나누고 각 층을 좌우로 나누기 -->
+<div class="container" id="test5">
+    <div id="jeon1">
+        <div></div><div></div>
+    </div>
+    <div id="jeon2">
+        <div></div><div></div>
+    </div>
+</div>
+
+선생님 방법
+<div class="container">
+    <div class="row">
+      <div class="col bg-red"></div><div class="col bg-yellow"></div>
+    </div>
+
+    <div class="row">
+      <div class="col bg-green"></div><div class="col"></div>
+    </div>
+  </div>
+
+  방법2
+
+  <div class="container" id="test6">
+    <div></div><div></div><div></div><div></div>
+  </div>
+
+  
+</body>
+</html>

@@ -1,0 +1,83 @@
+*{
+    /* 모든 요소(*)에 
+    width/height가 설정될 때
+    content= width/height-2(border + padding)
+    한 크기로 자동 계산해서 설정
+    ->생각한 크기 안에 테두리 포함해서 모든 요소를 넣을 수 있도록 */
+     box-sizing: border-box;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: lightsalmon;
+}
+/* border 영역 */
+.border{
+    /* 10px 두께의 검정 실선 테두리 */
+    border: 10px solid black;
+   box-sizing: border-box; 
+   /* 우리가 80 계산해서 줄이기 싫으니까 너가 계산해서 해 */
+   /* padding과 border는 너비에 양쪽으로 두 번 들어감 */
+}
+
+/* content 영역 */
+.content{
+    width: 150px;
+    height: 150px;
+/* width/height 설정 값이 content 영역에만 적용되도록 변경 */
+    box-sizing: content-box;
+}
+/* padding(content, border 사이) 영역 */
+.padding{
+    width: 200px;
+    height: 200px;
+    background-color: lightgreen;
+/* 상하좌우 content, border 사이에 20px을 끼움 */
+/* 내용이 테두리에 딱 붙어있지 않고 떨어져 있음 */
+    padding: 20px; 
+}
+/* margin 영역 */
+.margin{
+    /* 상하좌우 다른 요소(부모, 형제 요소 등)와도 거리두려고 함 */
+    /* body 태그로 부터도 50px 만큼 떨어지려고 함 */
+    margin : 50px;
+}
+.margin2{
+    margin: 100px;
+}
+/* padding, border, margin의 방향성 */
+#test1{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 15px;
+
+    margin-top: 30px;
+    margin-bottom: 100px;
+    margin-left: 50px;
+    margin-right: 300px;
+/* 
+    solid: 실선
+    dotted: 점선(.)
+    double: 이중실선
+    dashed: 점선(-)*/
+    border-top: 5px solid red;
+    border-bottom: 3px dotted black;
+    border-left: 10px double green;
+    border-right: 3px dashed purple;
+}
+
+#test2{border : 1px solid black;}
+/* margin : auto 테스트 */
+.container{
+    width: 500px;
+    height: 500px;
+    border: 3px solid black;
+    box-sizing: content-box 
+    /* content 영역 크기가 500에 500이다 */
+}
+#test3{
+    margin:auto; /* div태그는 block이어서 한 row만 차지 */ 
+    margin-top: 200px;
+}

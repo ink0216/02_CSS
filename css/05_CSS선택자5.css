@@ -1,0 +1,56 @@
+/* :only-child */
+/* #test1의 유일한 자식이 있고, 그게 p태그이면 선택을 해라 */
+#test1 > p:only-child{
+    background-color: orange;
+}
+
+/* #test2의 유일한 자식이 있고, 그게 p태그이면 선택을 해라 */
+#test2 > p:only-child{
+    background-color: green;
+} /* test2에는 자식이 둘이 있어 유일하지 않아서 적용되지 않음 */
+/* pre 태그가 아닌 p태그만 지워도 적용되지 않음, 유일자식이 p아니어서 */
+
+/* :only-of-type */
+
+/* #test3의 자식 p태그를 모두 선택했는데 그게 딱 한개일 경우 */
+
+#test3 > p:only-of-type{
+    background-color:pink;
+}
+
+#test3 > pre:only-of-type{
+    background-color:skyblue;
+}
+
+/*  :empty */
+#test4 > p{
+    height : 30px;
+    background-color: greenyellow;
+
+}
+
+#test4 > p:empty{
+    height : 30px;
+    background-color: pink;
+
+} /* p태그들 중에서 empty한 것만 찾아라 */
+
+/* 여러 요소 동시 선택 */
+#test5-1, .test5-2, [name="test5-3"]{
+    font-weight: bold; /* 두꺼운 글씨 */
+    font-size: 24px;
+    font-family: 궁서체;
+    /* border-bottom : 아랫쪽 테두리 */
+    border-bottom: 3px solid black;
+} /* 아이디가 저거, 클래스가 저거, 네임이 저거인 것을 모두 선택*/
+
+.test6{background-color: yellow;}
+/* 클래스가 test6인 애들한테만 적용하겠다 */
+.aaa{font-size: 30px;}
+
+/* class 속성 값으로 test6, aaa 둘 다 가지고 있는 요소만 선택하려면?
+클래스 선택자를 띄어쓰기 안하고 다 붙여서 쓰면 됨 */
+/* 주의사항 : 클래스 선택자 사이에 띄어쓰기 하면 
+그게 test6의 후손 중에서 class가 aaa인 것에 적용하라는 뜻 됨 */
+/* 띄어쓰기는 후손 선택자이기 때문에 */
+.test6 .aaa{color: red;} /* 띄어쓰기 쓰고 지우며 비교하기 */
