@@ -117,7 +117,7 @@ p{color: white;}
 /* -------------동위 선택자------------ */
 
 /* + : 바로 뒤 형제요소 하나 선택하는 것 */
-#div1 + dov{
+#div1 + div{
     background-color: yellow;
 }
 /* #div + dov{

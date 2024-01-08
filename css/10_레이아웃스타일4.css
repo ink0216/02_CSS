@@ -1,0 +1,143 @@
+*{
+    /* 모든 요소 */
+    /* html 요소에 기본적으로 설정되는 padding과 margin을 없애고 시작해야 
+    사용자가 크기를 지정하거나 배치하는 것이 쉬워진다 */
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+div{
+    border: 1px solid black;
+}
+
+/* container-1: first, second, third를 감싸는 요소(이 요소를 기준점으로 할 것임) */
+/* 셋에 absolute를 사용해서 색종이 겹치듯 겹칠것임 */
+/*  이 모양 만들 것임( 사진) */
+.container-1{
+width: 304px;
+height: 304px;
+border: 2px dashed red;
+margin: 30px;
+position : relative; /* 기준 됨 */
+}
+
+.first{
+    width: 300px;
+    height: 300px;
+    background-color: red;
+    position: absolute;
+    /* first에 absolute 하면 second와 third는 first 밑에 깔리게 됨 */
+}
+.second{
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    position: absolute;
+    left: 50px; /* 기준 요소(container-1) 왼쪽 벽으로부터 50px 떨어진 위치에 있겠다 */ 
+    /* container-1이 기준 요소로 선언돼 있어서. */
+    /* container에 relative가 없으면 기준이 브라우저 왼쪽 가장자리가 기준이 되어 거기서부터의 거리로 떨어짐 */
+    top: 50px;
+    /* 기준 요소의 윗쪽 벽으로부터 50px만큼 떨어진 위치 */
+    /* absolute 쓰면 이렇게 픽셀 계산해야함 고치기 힘듦 */
+}
+.third{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    position: absolute;
+    left : 100px; 
+    bottom: 100px;
+    /* top, bottom, left, right에 음수, 양수 모두 가능함 */
+    /* 기준점 기준으로 계산할 뿐
+    영역 벗어날 수 있음 영역 밖으로 벗어나면 안되는 것 아님 */
+    /* 이 경우, left로 쓰나 right로 쓰나 일치 */
+    /* 이 경우, top으로 쓰나 bottom으로 쓰나 일치 */
+    /* 똑같이 계산하면 됨 */
+    z-index:10;
+}
+/* 요소 정가운데 배치 */
+.container-2{
+    width: 486px;
+    height: 272px;
+    position: relative; /* '이 컨테이너2가 기준이야!'선언 */
+}
+.center{
+    width: 50px;
+    height: 50px;
+    background-color: hotpink;
+    border-radius: 50%; /* 테두리를 둥글게 만들기 */
+    /* 50% 는 완벽한 원 됨! */
+    /* 다른 요소와의 간격(margin)을 자동으로 지정 
+    ->자동으로 가운데 정렬 됨
+    ->div가 한 줄만 차지해서 상하로는 가운데 정렬 안되고
+    좌우로만 가운데 정렬 됨 */
+    margin: auto;
+    position: absolute; /* 이거 쓰면 한 줄 차지하는 것 사라짐 */
+    bottom:0; /* 기준점 아래쪽 벽으로부터 안떨어지겠다 */ 
+    top:0; /* 기준점 윗쪽 벽으로부터 안떨어지겠다 */
+    /* margin: auto; 안쓰면 가운데 정렬 안되고 왼쪽 위에 원 붙어있음  */
+    /* 이러면 탑이랑 바텀에서 같은 힘으로 이 원을 잡아당기고 있는데 */
+    left:0;
+    right:0;
+    /* 근데 left와 top이 우선이어서 그렇게 보임
+    (사실은 같은 힘으로 원 당기는 줄다리기 하고 있는 것임) */
+    /* top, bottom, left, right를 0으로 설정하고 
+    margin: auto를 쓰면 딱 가운데로 옴 */
+
+}
+/* fixed */
+.fixed-area{
+    width : 40px;
+    height : 40px;
+    border-radius : 50%;
+    position : fixed; /*  이거 쓰면 top안보이게 됨 */
+    /* 브라우저 바깥에 존재하게 됨 */
+    bottom : 30px;
+    right : 30px;
+    background-color: white;
+}
+
+.fixed-area>a{
+    /* fixed-area안의 자식a태그 */
+    width: 100%;
+    height: 100%;
+    /* a태그는 기본적으로 inline형식이라 크기 지정이 안됨 */
+    display: block;
+    /* a태그는 사각형 모양이어서 원 근처에 가면 손가락 생김 */
+    border-radius: 50%;
+    /* 이걸 해야 원 안에 손가락 들어가야 손가락 생김 */
+    /* 글자 정렬 속성 */
+    text-align: center; /* 좌우 가운데로 top 글자 옴 */
+    /* 장평 : 글씨는 항상 장평의 중앙에 써짐 */
+    /* 장평을 조절하는 속성 */
+    line-height: 35px; /* 글이 중앙에 오도록 조절하면 됨 */
+    /* top에 밑줄 없애기 */
+    text-decoration: none;
+    /* 글자 색 변경 */
+    color: black;
+    /* 글꼴 두께 두껍게 */
+    font-weight: bold;
+    /* top 등 글씨 더블클릭 하면 파란 박스 생기는 것 없앰 */
+    user-select: none;
+}
+/* sticky */
+.title{
+    background-color: steelblue;
+    color: white;
+    /* 글자와 테두리 사이 = padding */
+    padding: 100px 20px 30px; /* 상하 좌우 */ 
+    /* 마우스 스크롤 해서 요소가 화면을 벗어나면 
+    지정된 위치에 고정시킴 */
+    position: sticky;
+    /* 근데 지정된 위치를 아직 안써서 아직 안됨 */
+    top:-70px; 
+    /* 근데 position-absolute와 겹침 */
+    /* sticky도 absolute여서 absolute를 
+    어떤 순서로 겹치게 할 것인지가 z-index임 
+    모니터와 수직 방향의 z축 설정해서 
+    1만 올려도 안 겹치게 됨 기본값은 0임*/
+    /* z축 방향으로 튀어나와있는 정도(순서) 지정*/
+    z-index: 1000; /* 무슨 일이 있어도 웬만하면 이게 맨 위로 올라옴 */
+    /* 나머지는 xy 평면(z=0)에 붙어있고 title은 z=1평면으로 올라음 */
+}

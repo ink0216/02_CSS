@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_레이아웃 스타일 3</title>
+    <link rel="stylesheet" href="../css/09_레이아웃스타일3.css">
+</head>
+<body>
+    <h1>요소 정렬 스타일(float / clear)</h1>
+    <pre>
+        float(뜨다, 띄우다, 뜨는 물건) :
+        요소(태그 세트 전체)를 띄워서 좌/우로 정렬하는 속성
+        왼쪽으로 흐르는 물에 띄우면 왼쪽정렬
+        반대는 반대 정렬
+
+        HTML도 포토샵처럼 여러 레이어를 겹쳐 구성
+        (float가 지정되지 않은 요소와, 
+        float가 지정된 요소가 겹치는 문제 발생->clear로 해결가능
+        어떤 애는 떠 있고 어떤 애는 안떠있고)
+
+    clear : float로 인해 띄워져 있는 상태를 해제하는 속성
+    (같은 층으로 내려주어 요소 겹침 문제를 해결) 
+
+    </pre>
+    <hr>
+   
+    <h3>float:left / clear:left</h3>
+  <div class="test">
+    <div class="float-left">1</div>
+    <div class="float-left">2</div>
+    <div class="float-left">3</div>
+    <div class="float-left">4</div>
+    <div>Hello</div>
+    <div class="clear-left">World</div>
+    <!-- clear-left: left로 정렬된 것들과 안겹치게 해라 -->
+    <!-- right로 정렬된 것들이 있다면 걔네들과는 겹칠 수 있음 -->
+    <div class="float-left">5</div>
+    <div class="float-left">6</div>
+    <div class="float-left">7</div>
+  </div>
+  <!-- 1,2,3,4를 오른쪽 정렬하면 먼저 쓴 1이 가장 오른쪽에 옴 -->
+
+  <hr>
+  <h3>float:right / clear:right</h3>
+  <div class="test">
+    <div class="float-right">1</div>
+    <div class="float-right">2</div>
+    <div class="float-right">3</div>
+    <div class="float-right">4</div>
+    <div>Hello</div>
+    <div class="clear-right">World</div>
+    <!-- clear-right: right로 정렬된 것들과 안겹치게 해라 -->
+    <!-- left로 정렬된 것들이 있다면 걔네들과는 겹칠 수 있음 -->
+    <div class="float-right">5</div>
+    <div class="clear-right">안녕하세요</div>
+  </div> 
+
+  <hr>
+  <h3>float:left + right / clear : both </h3>
+  <div class="test">
+    <div class="float-left">1</div>
+    <div class="float-left">2</div>
+    <div class="float-right">3</div>
+    <div class="float-right">4</div>
+    <div>Hello</div>
+    <div class="clear-both">World</div>
+    <!-- clear-left와 clear-right 해서 비교 -->
+    <div class="float-left">5</div>
+    
+  </div>
+
+  <hr>
+  <h2>float를 이용한 좌우 분할(좌우, 행 분할)</h2>
+  <div class="container">
+    <div class="col col-5 bg-1"></div>
+    <div class="col col-5 bg-2"></div>
+    <!-- 정확히 반반 나누고 싶으면 col-5로 하면 됨 -->
+  </div>
+
+  <hr>
+  <h3>4분할 (田)</h3>
+  <div class="container">
+    <!-- 1행 -->
+    <div class="row row-5">
+      <div class="col col-5 bg-7"></div>
+      <div class="col col-5 bg-3"></div>
+    </div>
+
+    <!-- 2행 -->
+    <div class="row row-5">
+      <div class="col col-5 bg-1"></div>
+      <div class="col col-5 bg-4"></div>
+    </div>
+  </div>
+
+
+  </div>
+  <hr>
+  <div class="container">
+    <div class="col col-5">
+        <div class="row row-5"></div>
+        <div class="row row-5"></div>
+    </div>
+    <div class="col col-5">
+        <div class="row row-5"></div>
+        <div class="row row-5"></div>
+    </div>
+    <!-- 열을 세로로 먼저 나누고 그 안에 행을 두개로 나눌 수 있다 -->
+  </div>
+
+  <hr>
+  <!-- float로 네 영역을 다 left 정렬 해두고
+자리 넘어가면 자동으로 아래 행으로 넘어감 -->
+<!-- float된 요소가 부모 요소 영역을 벗어나게 생긴 경우
+ 자동으로 다음 줄로 이동된다(줄바꿈) -->
+<div class="container">
+    <div class="col col-5 row-5 bg-1"></div>
+    <div class="col col-5 row-5 bg-2"></div>
+    <div class="col col-5 row-5 bg-3"></div>
+    <div class="col col-5 row-5 bg-4"></div>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>

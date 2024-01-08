@@ -1,0 +1,50 @@
+.flex-container{
+    height: 700px;
+    background-color: #ccc;
+     /*flex container로 지정  */
+     display: flex;
+
+     /* flex-direction */
+     /* 중심축 방향(기본값 : row) */
+    /* flex-direction: row; */
+    flex-direction: row; 
+    /* reverse 하면 float-right와 동일하게 1번이 오른쪽으로! */
+    /* flex-direction: column-reverse; */
+
+    /* justify-content */
+    /* 중심축 방향 item 정렬(기본값 : flex-start) */
+    /* justify-content: flex-start;  */
+    
+    /* 이게 기본값이어서 이거 써도 변화 없음 */
+    justify-content: flex-end; /* 이거는 float-right와 다름 */
+    /* 중심축은 좌->우 방향인데, 중심축의 끝방향에다가 정렬할거다=flex-end */
+    /* 중심축은 좌->우 방향인데, 중심축의 가운데에다가 정렬할거다=center */
+    
+    /* justify-content: space-around;  */
+    /* 모든 item의 사이사이에 간격 주는 것 */
+    
+    /* justify-content: space-evenly; */
+    /* 모든 item 사이의 간격이 모두 동일하도록 */
+    
+    justify-content: space-between;
+    /* 양 끝 item이 가장자리에 붙음 */
+
+    /* align-items */
+    /* 교차축 방향 item 정렬(기본값: stretch) */
+    /* stretch를 확인하려면, 
+    item에 교차축 방향의 크기 지정 속성이 설정돼있지 않아야 한다 */
+    align-items:stretch; /* 75로 지정돼있어서 안보임 */
+
+    /* align-items: flex-start;  */
+    /* 교차축 시작 지점 */
+    /* align-items: flex-end;  */
+    /* 아이템들이 교차축 끝나는 지점의 끝부분으로 내려감 */
+    /* align-items: center;   */
+    /* 교차축의 딱 가운데로 옴 */
+    align-items: baseline; /* 글씨들의 높이가 같도록 요소의 y축 값을 알아서 조정 */
+}
+.item2{padding:5px;}
+.item3{padding:10px;}
+.item4{padding:15px;}
+.item5{padding:20px;}
+
