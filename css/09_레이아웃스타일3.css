@@ -18,7 +18,7 @@ box-sizing: border-box;
 float 정렬 시 div의 block형식이 해제돼서 한 줄을 차지하지 않고
 1,2,3,4가 가로로 정렬됨 */
 
-/* float: left 상태를 해제. world는 깔리지 마라 */
+/* clear-left: left 상태를 해제. world는 깔리지 마라 */
 
 .clear-left{
     clear : left;

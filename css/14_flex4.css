@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing : border-box;
+    /* 이렇게 세 줄 해놔야 내가 생각한 대로 결과가 나온다 */
+}
+div{
+    border: 1px solid black;
+}
+/* 감싸는 요소 */
+.container{
+    width: 800px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+}
+/* 행 */
+.row{
+    flex-grow: 1; /* 1:1:1 비율로 됨(33.333333%로 계산 안해도 됨) */
+
+}
+/* inline-block, float, flex사용해서 2행 1열을 row나누기 */
+/* 2행 */
+.row2{
+    display: flex;
+    /* 얘한테 또 flex container 줌 */
+    /* item전용 속성 쓰려면 그게 item이어야 하고 그러려면
+    그것을 감싸고 있는 것이 flex-container여야 함 그 클래스 주면 됨 */
+
+}
+.col{
+    width: 50%;
+    height : 100%;
+    /* 
+    flex-grow : 1; == 1:1로 나눠갖자 ==width: 50%;
+    align-items : stretch; ==height : 100%;
+    */
+}
+/* 2행 1열 */
+.col1{
+    display: flex;
+    flex-direction: column;
+}
+.col1 > div {
+    flex-grow: 1; /* 1:1:1로 나눠가지게 할거다 */
+}
+/* 2행 2열 내부의 행(row) 만들기*/
+.col2 > div{
+
+    height: 50%; /* div는 block요소여서 한 행을 다 차지해서 width안써도 됨 */
+    display: flex;
+}
+/* 2행 2열 내부의 열(column) 만들기 */
+.col2 > div > div{
+    width: 50%;
+    height: 100%;
+}
+
+

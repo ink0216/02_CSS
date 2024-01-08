@@ -1,0 +1,58 @@
+/* 감싸는 요소(flex container) 설정 */
+.flex-container{
+    height: 400px;
+    background-color: #ddd;
+    display: flex; /* 이 안의 아이템들 유연하게 배치 */
+    flex-direction: row; /* 중심축 방향은 좌->우 방향 */
+    flex-wrap: nowrap; /* 아이템들이 넘어가도 다음 줄로 안넘어가고 한 줄로 유지 */
+
+}
+/* order: item의 순서를 지정하는 속성 */
+.order1{order : 1;}
+.order2{order : 2;}
+.order3{order : 3;}
+.order4{order : 4;}
+.order5{order : 5;}
+
+/* flex-grow : item 팽창 정도를 지정 */
+.grow1{ flex-grow: 1;}
+.grow2{ flex-grow: 2;}
+.grow3{ flex-grow: 3;}
+.grow4{ flex-grow: 4;}
+/* 처음의 남는 여백을 10등분 해서 1:2:3:4의 비율로 나눠가져가겠다 */
+
+
+/* flex-shrink : item 수축 정도를 지정 */
+/* .shrink-container > .item{} */
+/* shrink-container의 자식 중 class가 item인 것 */
+.shrink-container > .item{
+    width: 200px;
+    height: 200px;
+    /* 부모 요소가 모든 요소의 width 합보다 작은 만큼을 네 요소가 나눠서 줄어듦 */
+}
+.shrink0{ flex-shrink : 0;} /* 0으로 하면 안줄어듦 */
+.shrink1{ flex-shrink : 1;} /* 1로 하면 안줄어듦 */
+.shrink2{ flex-shrink : 2;} /* 2로 하면 안줄어듦 */
+.shrink3{ flex-shrink : 3;} /* 3로 하면 안줄어듦 */
+
+/* flex-basis : 중심축 방향 item의 기본 점유율(크기) 지정 */
+/* 
+
+    중심축이 row -> width == flex-basis
+    중심축이 column -> width == flex-basis
+    */
+.basis-150px{flex-basis: 150px;}
+.basis-10{flex-basis: 10%;}
+.basis-25{flex-basis: 25%;}
+.basis-container{
+    flex-direction: row;
+}
+/* flex 속성 : flex-grow + flex-shrink + flex-basis를 한 번에 작성하는 속성 */
+.flex-item{
+    flex: 0 0 200px; /* grow shrink basis 순서대로 */
+}
+
+/* align-self: 각 item 별로 교차축 방향으로 정렬 */
+.self-start{align-self: flex-start;}
+.self-end{align-self: flex-end;}
+.self-center{align-self: center;}

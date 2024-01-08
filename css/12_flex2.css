@@ -1,0 +1,63 @@
+.flex-container{
+    /*  <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
+    /* viewport : 현재 기기나 프로그램의 화면에서 보여지고 있는 영역 */
+    /* vh(Viewport Height): 현재 화면의 높이를 나타내는 단위 */
+    /* vw(Viewport Width): 현재 화면의 너비를 나타내는 단위 */
+    /* vh와 vw는 가변크기단위임, 기기마다 화면 크기가 다르므로 */
+    /* 100vh == 현재 화면 높이의 100% */
+    height: 75vh; /* 화면 높이의 75% */ 
+    /* 화면 크기를 확대 축소해도 화면의 75%를 계속 유지 */
+    /* 이걸 통해서 반응형 만듦 기기에 따라서 화면을 어떻게 바꿀까 */
+
+    /* 감싸는 요소를 flex container로 지정
+    ->내부 요소인 item이 유연하게 배치됨 */
+    display:flex;
+
+    /* flex-wrap(감싸다, 포장) */
+    /* item이 한 줄이나 여러 줄로 배치되도록 지정하는 속성 
+    (기본값 : nowrap, 한 줄로만 모두 배치되는 것) */
+    /* flex-wrap: nowrap;  */
+    /* 이게 기본값이어서 이거 써봤자 아무 변화 없음 */
+    flex-wrap: wrap; 
+    /* 아이템이 찌그러지게 생겼으면 다음줄로 넘김 */
+    /* flex-wrap: wrap-reverse;   */
+    /* 교차축의 방향이 바뀜 */
+
+    /* flex-flow */
+    /* flex-container 관련 설정을 한 번에 작성하기 위한 속성 
+     (flex-direction + flex-wrap)*/
+    /* flex-flow: row-reverse wrap-reverse; */
+    /* justify-content : 중심축 방향 정렬 */
+    /* align-content : 교차축 방향으로 wrap된 item들만 정렬 */
+    /* align-content */
+    /* 교차축 기준으로 wrap 설정으로 인해 생성된 행들을 정렬하는 것
+    (맨 위에 붙일 것인지, 아래에 붙일 것인지 등) */
+    /* align-content: flex-start;  */
+    /* 교차축 시작 지점 */
+    /* align-content: flex-end;  */
+    /* align-content: center;  */
+    /* align-content: space-around;   */
+    /* align-content: space-evenly;  */
+    align-content: space-between; 
+    /* 첫 줄 막줄을 끝에 붙여놓고 나머지 간격 일정히  */
+}
+/*
+[flex container 전용 속성이므로 item에 아래의 속성 써봤자 적용되지 않음] 
+display: flex;
+flex-direction :  중심축 방향
+justify-content : 중심축 방향으로 item을 정렬
+align-items :  교차축 방향으로 item을 정렬
+flex-wrap: item을 한 줄이나 여러 줄로 배치하는 것
+align-content : wrap 설정으로 만들어진 행들을 교차축 정렬하는 것
+flex-flow : flex-direction + flex-wrap  한 번에 설정하는 것
+
+
+*/
+/* extension 두개 더 설치해야함 
+"html end tag labels"
+"html to css autocompletion" */
+/* 두번째 것은 추가 설정 영상보기!!240108 */
+/* f1키 누르고 하는 것 */
+
+
+
