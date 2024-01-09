@@ -6,70 +6,79 @@
     <title>00_240110 제출 시험</title>
     <link rel="stylesheet" href="../css/00_240110제출시험.css">
 </head>
-<body>
+<body id="body-top">
     이거만들거임
     <img src="../images/네이버창캡쳐.JPG" alt="네이버창캡쳐" >
-    <div class="b-green"></div>
+    
 
-    <header class="header-row flex-container">
-        <section class="header-left flex-container ">
-            <div class="Nstick">
+    <header class="flex-container-row">
+        <section class="flex-container-row">
+            <div >
                 <img src="../images/네이버작대기.png" alt="네이버메뉴">
             </div>
-            <div class="Npay">
+            <div>
                 <img src="../images/네이버페이.png" alt="네이버페이">
             </div>
         </section>
-        <section class="header-right">
-            <div class="Ntalk">
+        <section class="flex-container-row">
+            <div >
                 <img src="../images/네이버톡톡.png" alt="네이버톡톡">
             </div>
-            <div class="Nalarm">
+            <div >
                 <img src="../images/네이버알림.png" alt="네이버알림">
             </div>
         </section>
+    
+        
     </header>
-    <div class="whole-col">
-    <search>
-        <div class="search-box flex-container">
-            <input class="input" type="text" >
-        </div>
-    </search>
-    <nav>
-        <ul class="navbar">
-            <li><a href="#">메일</a></li>
-            <li><a href="#">카페</a></li>
-            <li><a href="#">블로그</a></li>
-            <li><a href="#">쇼핑</a></li>
-            <li><a href="#">뉴스</a></li>
-            <li><a href="#">지도</a></li>
-            <li><a href="#">증권</a></li>
-            <li><a href="#">웹툰</a></li>
-        </ul>
-    </nav>
-    <main class="main-col">
+    <div class="flex-container-row">
+        <search class="search flex-container ">
+            <div class="search-box-cover flex-container input-cover">
+                <input class="input" type="text" >
+            </div>
+        </search>
+        <nav>
+            <ul class="navbar ">
+                <li><a href="#">메일</a></li>
+                <li><a href="#">카페</a></li>
+                <li><a href="#">블로그</a></li>
+                <li><a href="#">쇼핑</a></li>
+                <li><a href="#">뉴스</a></li>
+                <li><a href="#">지도</a></li>
+                <li><a href="#">증권</a></li>
+                <li><a href="#">웹툰</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    
+    <main class="flex-container-col">
         <div class="first-col">
-            <div></div>
             <div>
-                <div class="content-row card-container">
+                
+                <a href="#"><img src="../images/서울디지털대.png" alt="서울디지털대"> </a>
+            </div>
+            <div>
+                <div >
                     <!-- div.card-item -->
                     <div class="card-item">
                         <a href="#" class="card">
-                            <div class="card-thumbnail-container">
-                                <img class="card-thumbnail" src="../images/news/산업일보1.png" alt="산업일보">
+                            <div >
+                                <img  src="../images/news/산업일보1.png" alt="산업일보">
                             </div>
     
-                            <p class="card-content"> 산업일보</p>
+                            <p > 산업일보</p>
                         </a>
     
                     </div>
                     <div class="card-item">
                         <a href="#" class="card">
-                            <div class="card-thumbnail-container">
-                                <img class="card-thumbnail" src="../images/news/파이낸셜뉴스2.png" alt="파이낸셜뉴스">
+                            <div >
+                                <img  src="../images/news/파이낸셜뉴스2.png" alt="파이낸셜뉴스">
                             </div>
     
-                            <p class="card-content"> 파이낸셜뉴스</p>
+                            <p > 파이낸셜뉴스</p>
                         </a>
     
                     </div>
@@ -78,11 +87,11 @@
     
                     <div class="card-item">
                         <a href="#" class="card">
-                            <div class="card-thumbnail-container">
-                                <img class="card-thumbnail" src="../images/news/디지털타임스3.png" alt="디지털타임스">
+                            <div >
+                                <img  src="../images/news/디지털타임스3.png" alt="디지털타임스">
                             </div>
     
-                            <p class="card-content"> 디지털타임스</p>
+                            <p > 디지털타임스</p>
                         </a>
     
                     </div>
@@ -210,16 +219,58 @@
             </div>
         </div>
         <div class="second-col">
-
+            <div>
+                <div><input type="text">네이버 로그인</div>
+            </div>
+            <div>
+                <img src="../images/dogs/dog3.jpg" alt="강아지">
+            </div>
+            <div>
+                <img src="../images/네이버날씨.png" alt="네이버날씨">
+            </div>
         </div>
 
     </main>
     <footer>
 
+        <!-- &copy; : c에 동그라미 그려진 마크 -->
+        <p>Copyright &copy; Naver </p>
+        <!-- article : 작은 영역 나누고 싶을 때 쓰는 시맨틱태그 -->
+        <article>
+        <a href="#">프로젝트 소개</a>    
+        <span>|</span>
+        <a href="#">이용약관</a>    
+        <span>|</span>
+        <a href="#">개인정보처리방침</a>    
+        <span>|</span>
+        <a href="#">고객센터</a>    
+        </article>
     </footer>
 
 
 
 </div>
+
+
+<!-- 사이드 메뉴 -->
+<aside>
+    <a href="#">
+        <img src="../images/cats/cat1.jpg" alt="이전에 본 글">
+    </a>
+    <a href="#">
+        <img src="../images/cats/cat2.jpg" alt="이전에 본 글">
+    </a>
+    <a href="#">
+        <img src="../images/cats/cat3.jpg" alt="이전에 본 글">
+    </a>
+    <a href="#">
+        <img src="../images/cats/cat4.jpg" alt="이전에 본 글">
+    </a>
+    <hr>
+    <div class="top-button">
+        <a href="#body-top">위로 이동</a>
+    </div>
+</aside>
+
 </body>
 </html>

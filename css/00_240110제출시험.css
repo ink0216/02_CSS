@@ -1,0 +1,189 @@
+.flex-container-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.flex-container-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.flex-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* search-box */
+.search{
+    width: 100%;
+}
+.search-box-cover{
+    border: 3px solid rgb(18, 186, 18);
+    width: 75%;
+    height: 50px;
+    border-radius: 40%;
+    display: block;
+
+
+}
+.input-cover{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.input{
+    width: 90%;
+    height: 25px;
+    border: none;
+
+}
+nav{
+    width: 100%;
+    display: inline-block;
+}
+.navbar{
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+}
+main{
+    width:100%;
+    display: inline-block;
+}
+.first-col{
+    width: 70%;
+
+}
+.second-col{
+    width: 30%;
+}
+
+
+
+/* 카드 내용 */
+.card-container{
+    /* 카드 다 만들고 나서 설정 예정 */
+        flex-wrap: wrap; /* 넘어가면 다음줄로 내리겠다 */
+        padding-left: 0;
+        padding-right: 0;
+    
+    
+    
+    }
+    /* 카드를 감싸고 있는 요소(flex의 item) */
+    .card-item{
+        flex-shrink : 0; /* 축소 안하고 크기 유지할거야 */
+        width: 25%;
+        min-width: 200px;
+        padding: 15px;
+    }
+    /* 카드(a) 태그 */
+    .card{
+        /* a태그가 inline이어서 크기조정 안돼서 크기조정 되도록 블럭으로 바꾸기 */
+        display: inline-block;
+    }
+    /* 카드 썸네일 */
+    .card-thumbnail-container{
+        height: 200px;
+        padding-bottom: 10px; /* 아래쪽 여백 */
+        border-bottom: 1px solid var(--main-color);
+    }
+    .card-thumbnail{
+        /* img태그 */
+        width: 100%;
+        height: 100%;
+        /* object-fit: 이미지 요소의 내용(진짜 이미지)의 크기 조절하는 것*/
+        /* object-fit: cover; : 이미지가 초과되는 부분을 프레임이 덮어씌워 안보이게 한다  */
+        /* object-fit : contain; : 이미지 전체가 조금도 안잘리고 화면에 보여지도록 이미지의 크기를 조절 */
+        /* cover와 contain 두 개 존재 */
+        object-fit: contain;
+    
+    
+    
+    }
+    .card-content{
+        /* p태그 부분 */
+        padding-top: 10px;
+        white-space: pre-wrap; /* 작성된 모양 그대로 화면에 나오게 해라 */
+    
+    }
+    /* 카드에 마우스 올라왔을 때 카드의 후손 이미지를 확대하겠다 */
+    .card:hover .card-thumbnail{
+        /* transform : 요소의 크기나 각도, 회전율(세 축으로 가능) 등을 변환/ 변형하는 속성 */
+        /* scale(숫자) : 숫자만큼 요소의 크기를 변환(배율) */
+        transform: scale(1.1); /* 근데 빠르게 확대됨 */
+        /* 시간을 두고 천천히 변환되도록 */
+    
+    }
+    /* 시간을 두고 천천히 변환되도록 */
+    .card-thumbnail{
+        /* transition : 요소의 변환 시간, 속도(네 단계로 나눠짐) 등을 조절하는 속성*/
+        /* transition-duration: 요소의 변환 시간만 조절하는 속성 */
+    
+        transition-duration: 0.25s; /* 0.25초동안 변환을 해라 */
+    }
+    
+@media screen and (max-width: 1024px){
+    /* 화면 너비가 0~1024px 사이일 때 적용할 CSS 코드 작성 */
+    /* 그만큼 작아지면 한 줄에 강아지 그림이 세 개씩 있도록 할 것임 */
+    .card-item{
+        width: 33.33%;
+    }
+    .thumbnail-col{
+        width: 330px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    /* 화면 너비가 0~800px 사이일 때 적용할 CSS 코드 작성 */
+    /* 그만큼 작아지면 한 줄에 강아지 그림이 두 개씩 있도록 할 것임 */
+    .card-item{
+        width: 50%;
+    }
+}
+/* ----------------------사이드 메뉴-------------------- */
+aside{
+    display: flex;
+    flex-direction: column;
+
+    width: 80px;
+    height: 370px;
+    /* 화면 일정 위치에 고정 */
+    position: fixed; 
+    /* 고정되는 위치 설정 */
+    right: 50px;
+    top:50%; /* 위에서부터 50% 떨어져라 */
+    transform : translateY(-50%);
+    
+    /* translateY() : Y축(세로) 위치 조정 */
+    background-color: white;
+    /* 그림자 */
+  /* box-shadow: h-offset v-offset blur spread color inset; */
+    box-shadow: 0px 0px 5px 0px grey; /* 개발자도구에서 설정가능 */
+}
+aside > a{
+    display: block; /* 크기 지정 가능하도록 */
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+}
+aside img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/* 위로 이동 */
+.top-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    user-select: none; /* 더블클릭 해도 블럭 안생기게 */
+    color: grey;
+    font-weight: bold;
+}
+
