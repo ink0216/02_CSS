@@ -1,13 +1,38 @@
+@font-face {
+    font-family: 'GoryeongStrawberry';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/GoryeongStrawberry.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    /* 모든 요소 */
+    /* html 요소에 기본적으로 설정되는 padding과 margin을 없애고 시작해야 
+    사용자가 크기를 지정하거나 배치하는 것이 쉬워진다 */
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+/* ----------------------------------------- */
+.N{
+    width: 100px;
+}
 .flex-container-row{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     
 }
+.flex-container-row-2{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    
+}
 .flex-container-col{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width:100%;
 
 }
 .flex-container{
@@ -21,9 +46,9 @@
     width: 100%;
 }
 .search-box-cover{
-    border: 3px solid rgb(18, 186, 18);
+    border: 4px solid rgb(18, 186, 18);
     width: 75%;
-    height: 50px;
+    height: 70px;
     border-radius: 40%;
     display: block;
 
@@ -41,61 +66,142 @@
     border: none;
 
 }
+
+/* ---------------------nav------------------ */
 nav{
     width: 100%;
     display: inline-block;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding : 30px 0;
+    border: 4px solid rgb(18, 186, 18);
+    background-color: white;
+    position: sticky;
+    top: 1px; /* 겹쳤을 떄의 위치? */
+    z-index: 1000; /* 그 누구에게도 깔리지 마라 */
+    
 }
 .navbar{
     display: flex;
-    justify-content: space-evenly;
-    width: 70%;
+    /* justify-content: space-between; */
+    justify-content: center;
+    width: 80%;
+    margin: 0;
+
 }
-main{
-    width:100%;
+.flex-container-col>nav>li{
+    width: 40px;
+}
+.navbar > li{
+    width: 12.5%; /* 다섯개이니까 너비를 20%씩 나눠가지게 */
+    height: 40px;
+    display: flex;
+    /* item(a태그) 정가운데 배치 */
+    justify-content: center; 
+    align-items: center;
+    justify-content: space-between; /* a태그들을 중심축과 교차축 모두 가운데로 오게 하겠다 */
+}
+.navbar >li >a{
+    font-size: 2em; /*2배 */
+    font-weight: bold;
+    color: rgb(18, 186, 18);
+    font-family: 'GoryeongStrawberry';
+    /* 마우스 커서 모양 바뀌는 영역 확장 */
+    padding: 3px 10px;
+    width: 100%;
+    text-align: center; /* 작성된 글자를 가운데 정렬 시키는 것 */
+}
+/* 마우스가 a태그에 올라갔을 때 색이 바뀌도록 */
+.navbar > li > a:hover{
+color: blue;
+}
+
+/* 메뉴 사이 구분선 추가 */
+.navbar > li:not(:last-child) > a{
+    border-right: 2px solid rgb(18, 186, 18);
+} /* 마지막 애만 빼고 오른쪽에 테두리 선을 만들어라 */
+.univ{
+    /* padding: 10px; */
+
+    width: 100%;
     display: inline-block;
+    border: 4px solid rgb(18, 186, 18);
+    padding: 3px;
+
+}
+.univv{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+/* -------------------main-------------------- */
+main{
+    width:2000px;
+    height: 1400px;
+    /* display: inline; */
+    border: 4px solid rgb(18, 186, 18);
 }
 .first-col{
+    display: flex;
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
     width: 70%;
-
+    height: 100%;
+    
 }
 .second-col{
     width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    border-left: 4px solid rgb(18, 186, 18);
 }
 
 
 
 /* 카드 내용 */
-.card-container{
-    /* 카드 다 만들고 나서 설정 예정 */
-        flex-wrap: wrap; /* 넘어가면 다음줄로 내리겠다 */
-        padding-left: 0;
-        padding-right: 0;
-    
-    
-    
-    }
+
     /* 카드를 감싸고 있는 요소(flex의 item) */
     .card-item{
         flex-shrink : 0; /* 축소 안하고 크기 유지할거야 */
-        width: 25%;
-        min-width: 200px;
-        padding: 15px;
+        width: 33.33%;
+        padding: 0px;
+        display: inline-block;
+        border: 2px dotted rgb(18, 186, 18);
     }
     /* 카드(a) 태그 */
     .card{
         /* a태그가 inline이어서 크기조정 안돼서 크기조정 되도록 블럭으로 바꾸기 */
         display: inline-block;
     }
-    /* 카드 썸네일 */
-    .card-thumbnail-container{
-        height: 200px;
-        padding-bottom: 10px; /* 아래쪽 여백 */
-        border-bottom: 1px solid var(--main-color);
+    
+    .card-cover{
+        width: 100%;
+        display: inline-block;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+    }
+    .card-wrap{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0;
     }
     .card-thumbnail{
         /* img태그 */
         width: 100%;
-        height: 100%;
+        display: inline-block;
+        
+        
         /* object-fit: 이미지 요소의 내용(진짜 이미지)의 크기 조절하는 것*/
         /* object-fit: cover; : 이미지가 초과되는 부분을 프레임이 덮어씌워 안보이게 한다  */
         /* object-fit : contain; : 이미지 전체가 조금도 안잘리고 화면에 보여지도록 이미지의 크기를 조절 */
@@ -112,7 +218,7 @@ main{
     
     }
     /* 카드에 마우스 올라왔을 때 카드의 후손 이미지를 확대하겠다 */
-    .card:hover .card-thumbnail{
+    .card-cover:hover .image{
         /* transform : 요소의 크기나 각도, 회전율(세 축으로 가능) 등을 변환/ 변형하는 속성 */
         /* scale(숫자) : 숫자만큼 요소의 크기를 변환(배율) */
         transform: scale(1.1); /* 근데 빠르게 확대됨 */
@@ -120,18 +226,66 @@ main{
     
     }
     /* 시간을 두고 천천히 변환되도록 */
-    .card-thumbnail{
+    .image{
         /* transition : 요소의 변환 시간, 속도(네 단계로 나눠짐) 등을 조절하는 속성*/
         /* transition-duration: 요소의 변환 시간만 조절하는 속성 */
     
         transition-duration: 0.25s; /* 0.25초동안 변환을 해라 */
     }
+    .card-wrap{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .image{
+        width: 50%;
+        height: 50%;
+    }
+    /* second col */
+    .login{
+        width: 100%;
+        display: inline-block;
+    }
+    .text{
+        width: 100%;
+        display: inline-block;
+    }
+    .puppy{
+        width: 100%;
+        display: inline-block;
+        border-top: 4px solid rgb(18, 186, 18);
+        border-bottom: 4px solid rgb(18, 186, 18);
+        padding: 4px;
+    }
+    .weather{
+        width: 100%;
+        display: inline-block;
+    }
+    /* ---------------------------------- */
+    /* 카드에 마우스 올라왔을 때 카드의 후손 이미지를 확대하겠다 */
+    .weather:hover .sweather{
+        /* transform : 요소의 크기나 각도, 회전율(세 축으로 가능) 등을 변환/ 변형하는 속성 */
+        /* scale(숫자) : 숫자만큼 요소의 크기를 변환(배율) */
+        transform: scale(1.1); /* 근데 빠르게 확대됨 */
+        /* 시간을 두고 천천히 변환되도록 */
+    
+    }
+    /* 시간을 두고 천천히 변환되도록 */
+    .sweather{
+        /* transition : 요소의 변환 시간, 속도(네 단계로 나눠짐) 등을 조절하는 속성*/
+        /* transition-duration: 요소의 변환 시간만 조절하는 속성 */
+    
+        transition-duration: 0.25s; /* 0.25초동안 변환을 해라 */
+    }
+    /* ---------------------------------- */
+    
     
 @media screen and (max-width: 1024px){
     /* 화면 너비가 0~1024px 사이일 때 적용할 CSS 코드 작성 */
     /* 그만큼 작아지면 한 줄에 강아지 그림이 세 개씩 있도록 할 것임 */
     .card-item{
-        width: 33.33%;
+        width: 50%;
     }
     .thumbnail-col{
         width: 330px;
@@ -142,7 +296,7 @@ main{
     /* 화면 너비가 0~800px 사이일 때 적용할 CSS 코드 작성 */
     /* 그만큼 작아지면 한 줄에 강아지 그림이 두 개씩 있도록 할 것임 */
     .card-item{
-        width: 50%;
+        width: 100%;
     }
 }
 /* ----------------------사이드 메뉴-------------------- */
@@ -186,4 +340,7 @@ aside img{
     color: grey;
     font-weight: bold;
 }
-
+/* footer */
+footer{
+    font-size: 30px;
+}
