@@ -41,6 +41,7 @@ position : relative; /* 기준 됨 */
     /* 기준 요소의 윗쪽 벽으로부터 50px만큼 떨어진 위치 */
     /* absolute 쓰면 이렇게 픽셀 계산해야함 고치기 힘듦 */
 }
+
 .third{
     width: 100px;
     height: 100px;
